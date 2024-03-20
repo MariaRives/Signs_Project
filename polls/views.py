@@ -10,7 +10,7 @@ from .models import *
 def index(request):
     return render(request, "polls/index.html")
 
-#This view is to gather demographics for the subjects
+# This view is to gather demographics for the subjects
 def demographics(request):
     if request.method == "POST":
         age = request.POST["age"]
@@ -30,7 +30,7 @@ def demographics(request):
     else:
         return render(request, "polls/demographics.html")  
 
-#View for the first experiment of the survey
+# View for the first experiment of the survey
 def training (request, id):
     return render(request, "polls/training.html", {"id":id})
 
@@ -99,7 +99,7 @@ def saveComp (request):
     comprehension.save()
     return JsonResponse({"message": "Comprehension saved"}, status=201)
 
-#View for the first experiment of the survey
+# View for the first experiment of the survey
 
 def preference(request, id, counter):
     symbols =  list(Signal.objects.filter(signalType="Preference").values())
