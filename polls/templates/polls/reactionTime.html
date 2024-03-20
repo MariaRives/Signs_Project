@@ -1,0 +1,122 @@
+{% extends "polls/layout.html" %} 
+{% load static %} 
+{% block body %}
+<h1>Part {{part}}</h1>
+<div id="singsDiv" style="text-align: center">
+  <img
+    id="signImg"
+    src=""
+    height="500px"
+    width="auto"
+    style="text-align: center" />
+  <h1  id="imgName" style="display: block; font-size: 100px"></h1>
+</div>
+<div id="comprehensionDiv" style="text-align: center; display: none">
+  <form id="comprehensionForm">
+    <h3>What does the previous sign mean?</h3>
+    <input id="answer" type="text" />
+    <input type="submit" class="btn btn-primary" value="Next" />
+  </form>
+</div>
+{% endblock %} {% block script %}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      fetch("/getSigns" + {{part}})
+        .then((response) => response.json())
+        .then((json) => {
+          let elapsedTime = 0;
+          let initialTime = Date.now();
+          let counter = 0;
+          function stopTimer() {
+            elapsedTime = Date.now() - initialTime;
+            console.log(elapsedTime);
+          }
+          document.querySelector("#signImg").src = json[counter].imgURL;
+          if ({{part}} == 2 && json[counter].signalType == "Both"){
+            document.querySelector("#imgName").innerHTML = json[counter].description;
+          }
+          document.querySelector("#comprehensionForm").addEventListener("submit", function(e){
+              e.preventDefault();
+              if (counter === json.length) {
+                if ({{part}} == 1){
+                  url = "/intro/" + {{id}} + "/2";
+                } else {
+                  url = "/intro/" + {{id}} + "/preferences"
+                }
+                window.location = url;
+              }
+              const answer = document.querySelector("#answer").value
+              fetch("/saveComp", {
+                method: "POST",
+                body: JSON.stringify({
+                  subjectID: {{id}},
+                  answer: answer,
+                  signID: json[counter-1].id,
+                })
+              }).then((response) => {
+                console.log(counter)
+                document.querySelector("#answer").value = "";
+                document.querySelector("#comprehensionDiv").style.display = "none";
+                document.querySelector("#singsDiv").style.display = "block";
+
+                elapsedTime = 0;
+                initialTime = Date.now();
+              })
+            })
+          document.addEventListener("keypress", function (event) {
+            if (document.activeElement.tagName === 'INPUT'){
+              return;
+            }
+            if (event.key !== " " && event.key !== "Enter") {
+                // Ignore any keypresses that are not Space or Enter
+                return;
+            }
+            function saveRT(rt){
+              fetch("/saveRT", {
+                method: "POST",
+                body: JSON.stringify({
+                  subjectID: {{id}},
+                  rT: rt,
+                  signID: json[counter].id,
+                }),
+              }).then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+              })
+              .then(data => {
+                  console.log("Save successful:", data);
+                  elapsedTime = 0;
+                  initialTime = Date.now();
+              })
+              .catch(error => {
+                  console.error('There has been a problem with your fetch operation:', error);
+              });
+            }
+            stopTimer();
+            if (event.key == " ") {
+              saveRT(elapsedTime)
+            } else if (event.key == "Enter"){
+              saveRT(0)
+            }
+            document.querySelector("#singsDiv").style.display = "none";
+            document.querySelector("#comprehensionDiv").style.display = "block";
+            document.querySelector("#answer").focus()
+            counter++;
+            if (json[counter]){
+              document.querySelector("#signImg").src = json[counter].imgURL;
+              console.log(json[counter].signalType)
+              if ({{part}} == 2 && json[counter].signalType == "Both"){
+                document.querySelector("#imgName").style.display = "block";
+                document.querySelector("#imgName").innerHTML = json[counter].description;
+              } else {
+                console.log("aaaaa")
+                document.querySelector("#imgName").style.display = "none";
+              }
+            }
+          });
+        });
+    });
+</script>
+{% endblock %}

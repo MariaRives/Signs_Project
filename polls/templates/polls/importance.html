@@ -1,0 +1,28 @@
+{% extends "polls/layout.html" %} {% load static %} {% block body %}
+<h1>Familiarity</h1>
+
+<form class="importance-form" action="/importance/{{data.id}}" method="post">
+  <div class="row">
+    {% csrf_token %} {% for symbol in data.symbols %}
+    <div class="col-lg-4 mb-3">
+      <div class="card h-100">
+        <h3>{{symbol.description}}</h3>
+        <img src="{{symbol.imgURL}}" height="300px" width="auto" />
+        <select name="signal{{symbol.id}}">
+          <option value="1">1 - Not familiar at all</option>
+          <option value="2">2 - Slightly familiar</option>
+          <option value="3">3 - Partially familiar</option>
+          <option value="4">4 - Very familiar</option>
+          <option value="5">5 - Extremely familiar</option>
+        </select>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="row" style="margin-top: 20px">
+    <div class="col text-center">
+      <input type="submit" class="btn btn-primary" value="Finish" />
+    </div>
+  </div>
+</form>
+{% endblock %}

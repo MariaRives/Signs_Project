@@ -1,0 +1,33 @@
+{% extends "polls/layout.html" %}
+{% load static %}
+
+{% block body %}
+    
+    <div style="text-align: center;">
+      <h1>Preferences</h1>    
+      <form class= "preference-form" action="/preference/{{data.id}}/{{data.counter|add:"1"}}" method="post">
+        {% csrf_token %}
+        <img src="{{data.symbol.imgURL}}" height="400px" width="auto">
+        <input hidden="true" type="text" name="signalID" value="{{data.symbol.id}}">
+        <fieldset>
+            <legend>What type of sign do you prefer for this one:</legend>          
+            <div>
+              <input type="radio" id="Symbol" name="signal" value="Symbol" checked />
+              <label for="Symbol">Symbol</label>
+            </div>
+          
+            <div>
+              <input type="radio" id="Text" name="signal" value="Text" />
+              <label for="Text">Text</label>
+            </div>
+          
+            <div>
+              <input type="radio" id="Both" name="signal" value="Both" />
+              <label for="Both">Both</label>
+            </div>
+          </fieldset>
+          <input type="submit" class="btn btn-primary" value="Next">
+    </form>
+    </div>
+    
+{% endblock %}

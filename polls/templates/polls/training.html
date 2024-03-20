@@ -1,0 +1,57 @@
+{% extends "polls/layout.html" %} 
+{% load static %} 
+{% block body %}
+<h1>Training</h1>
+<div id="singsDiv" style="text-align: center">
+  <img
+    id="signImg"
+    src=""
+    height="500px"
+    width="auto"
+    style="text-align: center" />
+</div>
+<div id="comprehensionDiv" style="text-align: center; display: none">
+  <form id="comprehensionForm">
+    <h3>What does the previous sign means?</h3>
+    <input id="answer" type="text" />
+    <input type="submit" class="btn btn-primary" value="Next" />
+  </form>
+</div>
+{% endblock %} {% block script %}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      fetch("/trainSings")
+        .then((response) => response.json())
+        .then((json) => {
+          let counter = 0;
+          document.querySelector("#signImg").src = json[counter].imgURL;
+          document.querySelector("#comprehensionForm").addEventListener("submit", function(e){
+            e.preventDefault()
+            document.querySelector("#answer").value = "";
+            document.querySelector("#comprehensionDiv").style.display = "none";
+            document.querySelector("#singsDiv").style.display = "block";
+            if (counter === json.length) {
+              url = "/intro/" + {{id}} +"/1";
+              window.location = url;
+            }
+          })
+          document.addEventListener("keypress", function (event) {
+            if (document.activeElement.tagName === 'INPUT'){
+              return;
+            }
+            if (event.key !== " " && event.key !== "Enter") {
+              // Ignore any keypresses that are not Space or Enter
+              return;
+            }
+            document.querySelector("#singsDiv").style.display = "none";
+            document.querySelector("#comprehensionDiv").style.display = "block";
+            document.querySelector("#answer").focus()
+            counter++;
+            if (json[counter]){
+              document.querySelector("#signImg").src = json[counter].imgURL;
+            }
+          });
+        });
+    });
+</script>
+{% endblock %}

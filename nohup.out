@@ -1,0 +1,236 @@
+Watching for file changes with StatReloader
+Error: That port is already in use.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Error: That port is already in use.
+[12/Jan/2024 03:38:08] "GET /demographics/? HTTP/1.1" 200 1818
+[12/Jan/2024 03:38:08] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:39:53] "POST /demographics/ HTTP/1.1" 200 931
+[12/Jan/2024 03:39:54] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+Watching for file changes with StatReloader
+Error: That port is already in use.
+[12/Jan/2024 03:42:55] "GET /demographics/? HTTP/1.1" 200 1818
+[12/Jan/2024 03:42:55] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:43:00] "GET /demographics/? HTTP/1.1" 200 1818
+[12/Jan/2024 03:43:00] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:43:02] "GET /demographics/? HTTP/1.1" 200 1818
+[12/Jan/2024 03:43:02] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+Internal Server Error: /demographics/
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 2112, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ubuntu/projectRo/polls/views.py", line 26, in demographics
+    subject.save()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/base.py", line 901, in save_base
+    updated = self._save_table(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/base.py", line 1059, in _save_table
+    results = self._do_insert(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/base.py", line 1100, in _do_insert
+    return manager._insert(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/query.py", line 1845, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1821, in execute_sql
+    for sql, params in self.as_sql():
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1745, in as_sql
+    value_rows = [
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1746, in <listcomp>
+    [
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1747, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1686, in prepare_value
+    return field.get_db_prep_save(value, connection=self.connection)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 1019, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 2119, in get_db_prep_value
+    value = super().get_db_prep_value(value, connection, prepared)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 1012, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 2114, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'age' expected a number but got ''.
+[12/Jan/2024 03:43:03] "POST /demographics/ HTTP/1.1" 500 137205
+Internal Server Error: /demographics/
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 2112, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ubuntu/projectRo/polls/views.py", line 26, in demographics
+    subject.save()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/base.py", line 901, in save_base
+    updated = self._save_table(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/base.py", line 1059, in _save_table
+    results = self._do_insert(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/base.py", line 1100, in _do_insert
+    return manager._insert(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/query.py", line 1845, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1821, in execute_sql
+    for sql, params in self.as_sql():
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1745, in as_sql
+    value_rows = [
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1746, in <listcomp>
+    [
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1747, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1686, in prepare_value
+    return field.get_db_prep_save(value, connection=self.connection)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 1019, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 2119, in get_db_prep_value
+    value = super().get_db_prep_value(value, connection, prepared)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 1012, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 2114, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'yearsXP' expected a number but got ''.
+[12/Jan/2024 03:43:12] "POST /demographics/ HTTP/1.1" 500 137273
+[12/Jan/2024 03:43:18] "GET /demographics/? HTTP/1.1" 200 1818
+[12/Jan/2024 03:43:18] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:43:20] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:43:21] "GET /demographics/? HTTP/1.1" 200 1818
+[12/Jan/2024 03:43:21] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:43:28] "POST /demographics/ HTTP/1.1" 200 931
+[12/Jan/2024 03:43:28] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:44:41] "POST /demographics/ HTTP/1.1" 200 931
+[12/Jan/2024 03:44:41] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:44:42] "GET /firstPart/58/0?csrfmiddlewaretoken=csT18iUGgAMMHHhebBbcjBkHPIHvatAdiSWpTOTJkjN0nEotP1mRpwtAdbvyXojW HTTP/1.1" 200 2236
+[12/Jan/2024 03:44:42] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:44:44] "POST /firstPart/58/1 HTTP/1.1" 200 2298
+[12/Jan/2024 03:44:44] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:44:44] "POST /firstPart/58/2 HTTP/1.1" 200 2298
+[12/Jan/2024 03:44:44] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:44:58] "GET /firstPart/56/0?csrfmiddlewaretoken=rOPV14YgkM13JVVbFyuURDduMnsuBUzxUsazbe04pwv3RpnaQyj82S1wiGTbonio HTTP/1.1" 200 2236
+[12/Jan/2024 03:44:58] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:45:00] "POST /firstPart/56/1 HTTP/1.1" 200 2298
+[12/Jan/2024 03:45:00] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:45:02] "POST /firstPart/56/2 HTTP/1.1" 200 2298
+[12/Jan/2024 03:45:02] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:45:03] "POST /firstPart/56/3 HTTP/1.1" 200 2299
+[12/Jan/2024 03:45:04] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:45:05] "POST /firstPart/56/4 HTTP/1.1" 200 2300
+[12/Jan/2024 03:45:05] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:45:06] "POST /firstPart/56/5 HTTP/1.1" 200 2300
+[12/Jan/2024 03:45:07] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:45:08] "POST /firstPart/56/6 HTTP/1.1" 200 2299
+[12/Jan/2024 03:45:08] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:45:10] "POST /firstPart/56/7 HTTP/1.1" 200 2302
+[12/Jan/2024 03:45:10] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:45:12] "POST /firstPart/56/8 HTTP/1.1" 200 2299
+[12/Jan/2024 03:45:12] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:45:13] "POST /firstPart/56/9 HTTP/1.1" 200 2302
+[12/Jan/2024 03:45:14] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:45:15] "POST /firstPart/56/10 HTTP/1.1" 200 941
+[12/Jan/2024 03:45:15] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:14] "GET /secondPart/56/0?csrfmiddlewaretoken=CaLqGbYKkVKI5UPvnwWh9dHjzwrNpg5n5O64Ql0ypFeIdohuywLvksvl5PSucJOe HTTP/1.1" 200 2332
+[12/Jan/2024 03:46:14] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:16] "POST /secondPart/56/1 HTTP/1.1" 200 2275
+[12/Jan/2024 03:46:16] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:18] "POST /secondPart/56/2 HTTP/1.1" 200 2276
+[12/Jan/2024 03:46:18] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:19] "POST /secondPart/56/3 HTTP/1.1" 200 2276
+[12/Jan/2024 03:46:19] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:21] "POST /secondPart/56/4 HTTP/1.1" 200 2275
+[12/Jan/2024 03:46:21] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:23] "POST /secondPart/56/5 HTTP/1.1" 200 2275
+[12/Jan/2024 03:46:23] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:24] "POST /secondPart/56/6 HTTP/1.1" 200 2275
+[12/Jan/2024 03:46:24] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:27] "POST /secondPart/56/7 HTTP/1.1" 200 2275
+[12/Jan/2024 03:46:27] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:28] "POST /secondPart/56/8 HTTP/1.1" 200 2278
+[12/Jan/2024 03:46:29] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:30] "POST /secondPart/56/9 HTTP/1.1" 200 2280
+[12/Jan/2024 03:46:31] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:33] "POST /secondPart/56/10 HTTP/1.1" 200 2276
+[12/Jan/2024 03:46:33] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:35] "POST /secondPart/56/11 HTTP/1.1" 200 2274
+[12/Jan/2024 03:46:35] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:36] "POST /secondPart/56/12 HTTP/1.1" 200 2304
+[12/Jan/2024 03:46:36] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:38] "POST /secondPart/56/13 HTTP/1.1" 200 2276
+[12/Jan/2024 03:46:38] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:39] "POST /secondPart/56/14 HTTP/1.1" 200 2275
+[12/Jan/2024 03:46:39] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:40] "POST /secondPart/56/15 HTTP/1.1" 200 2277
+[12/Jan/2024 03:46:40] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:42] "POST /secondPart/56/16 HTTP/1.1" 200 2277
+[12/Jan/2024 03:46:42] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:44] "POST /secondPart/56/17 HTTP/1.1" 200 2275
+[12/Jan/2024 03:46:45] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:46] "POST /secondPart/56/18 HTTP/1.1" 200 2280
+[12/Jan/2024 03:46:46] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:48] "POST /secondPart/56/19 HTTP/1.1" 200 2276
+[12/Jan/2024 03:46:48] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:46:50] "POST /secondPart/56/20 HTTP/1.1" 200 907
+[12/Jan/2024 03:46:50] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:49:12] "GET /preference/56/0?csrfmiddlewaretoken=Pkr0k4fWHphfti9QRYBEr4VTqfxsDnOpiYMEuehKM9LfBMBP2YqSCjJVWyY9qQxg HTTP/1.1" 200 1659
+[12/Jan/2024 03:49:12] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:49:21] "POST /preference/56/1 HTTP/1.1" 200 1721
+[12/Jan/2024 03:49:21] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:49:23] "POST /preference/56/2 HTTP/1.1" 200 1721
+[12/Jan/2024 03:49:23] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:49:24] "POST /preference/56/3 HTTP/1.1" 200 1722
+[12/Jan/2024 03:49:24] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:49:27] "POST /preference/56/4 HTTP/1.1" 200 1723
+[12/Jan/2024 03:49:28] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:49:30] "POST /preference/56/5 HTTP/1.1" 200 1723
+[12/Jan/2024 03:49:31] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:49:37] "POST /preference/56/6 HTTP/1.1" 200 1722
+[12/Jan/2024 03:49:37] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:49:41] "POST /preference/56/7 HTTP/1.1" 200 1725
+[12/Jan/2024 03:49:42] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:49:46] "POST /preference/56/8 HTTP/1.1" 200 1722
+[12/Jan/2024 03:49:46] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:49:48] "POST /preference/56/9 HTTP/1.1" 200 1725
+[12/Jan/2024 03:49:48] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:49:49] "POST /preference/56/10 HTTP/1.1" 200 886
+[12/Jan/2024 03:49:49] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:50:59] "GET /identify/56?csrfmiddlewaretoken=cjyD0x4LaAAps6ridb6kFUJvyHYPNibjFXThaH6zfk4pAAThobVyQ9xx40pwALUa HTTP/1.1" 200 13775
+[12/Jan/2024 03:50:59] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:53:51] "POST /firstPart/58/3 HTTP/1.1" 200 2299
+[12/Jan/2024 03:53:51] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:53:52] "POST /firstPart/58/4 HTTP/1.1" 200 2300
+[12/Jan/2024 03:53:52] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:53:52] "POST /firstPart/58/5 HTTP/1.1" 200 2300
+[12/Jan/2024 03:53:52] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:53:52] "POST /firstPart/58/6 HTTP/1.1" 200 2299
+[12/Jan/2024 03:53:52] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:53:53] "POST /firstPart/58/7 HTTP/1.1" 200 2302
+[12/Jan/2024 03:53:53] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:53:53] "POST /firstPart/58/8 HTTP/1.1" 200 2299
+[12/Jan/2024 03:53:53] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:53:53] "POST /firstPart/58/9 HTTP/1.1" 200 2302
+[12/Jan/2024 03:53:53] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:53:53] "POST /firstPart/58/10 HTTP/1.1" 200 941
+[12/Jan/2024 03:53:53] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:55:39] "POST /identify/56 HTTP/1.1" 200 932
+[12/Jan/2024 03:55:39] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:56:40] "GET /importance/56?csrfmiddlewaretoken=uSA0Y0JB1OnGkq695mXuDshyu4htWnf5XwVE8aLp6yRGsUy8gmMIOH5A0nIaJQYW HTTP/1.1" 200 31856
+[12/Jan/2024 03:56:40] "GET /static/polls/styles.css HTTP/1.1" 404 1810
+[12/Jan/2024 03:56:51] "GET /importance/56?csrfmiddlewaretoken=uSA0Y0JB1OnGkq695mXuDshyu4htWnf5XwVE8aLp6yRGsUy8gmMIOH5A0nIaJQYW HTTP/1.1" 200 31856
+[12/Jan/2024 03:56:51] "GET /static/polls/styles.css HTTP/1.1" 404 1810

@@ -1,0 +1,35 @@
+{% extends "polls/layout.html" %} 
+{% load static %} 
+{% block body %}
+<div id="compose-view">
+  <h3>Please fill out the following demographic information:</h3>
+  <form id="questionaire-form" action="/demographics/" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      Age: <input type="number" id="q-age" class="form-control" name="age" />
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender: </label>
+      <select id="q-gender" name="gender">
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      Nationality:
+      <input class="form-control" id="q-Nationality" name="nationality" />
+    </div>
+    <div class="form-group">
+      State or Country of Driver License: <input class="form-control" id="q-DL" name="DL" />
+    </div>
+    <div class="form-group">
+      Years of Experience:
+      <input type="number" class="form-control" id="q-YOE" name="YOE" />
+    </div>
+    <input type="submit" class="btn btn-primary" value="Start experiment" />
+  </form>
+</div>
+{% endblock %} 
+{% block script %} 
+{% endblock %}

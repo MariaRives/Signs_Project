@@ -1,0 +1,95 @@
+{% extends "polls/layout.html" %}
+ {% load static %} 
+ {% block body %}
+<h1>Instructions</h1>
+{% if part == "training" %}
+<h3>Read Carefully:</h3>
+<p>
+  In the following exercise, you will be shown a traffic sign. If you recognize
+  the sign and know its meaning, press the <strong>SPACE</strong> bar on your
+  keyboard. If not, then press the <strong>ENTER</strong> key. Once a response
+  is provided, you will be asked to give the meaning of the sign that was just
+  shown. If you do not know the meaning please enter <strong>N/A</strong>. Once
+  you finish writing your answer, please click <strong>NEXT</strong> to go to
+  the following sign,
+  <strong>Do not hit ENTER or SPACE outside the textbox</strong>.
+</p>
+<h5>If you are ready, click START</h5>
+
+<form action="/training/{{id}}">
+  {% csrf_token %}
+  <input type="submit" class="btn btn-primary" value="Start" />
+</form>
+{% elif part == "part1" %}
+<h3>Read Carefully:</h3>
+<p>
+  In the following exercise, you will be shown a traffic sign. If you recognize
+  the sign and know its meaning, press the <strong>SPACE</strong> bar on your
+  keyboard. If not, then press the <strong>ENTER</strong> key. Once a response
+  is provided, you will be asked to give the meaning of the sign that was just
+  shown. If you do not know the meaning please enter <strong>N/A</strong>. Once
+  you finish writing your answer, please click <strong>NEXT</strong> to go to
+  the following sign,
+  <strong>Do not hit ENTER or SPACE outside the textbox</strong>.
+</p>
+<h5>If you are ready, click START</h5>
+<form action="/rt/{{id}}/1">
+  {% csrf_token %}
+  <input type="submit" class="btn btn-primary" value="Start" />
+</form>
+{% elif part == "part2"%}
+<h3>
+  <h3>Read Carefully:</h3>
+  <p>
+    In the following exercise, you will be shown a traffic sign. If you
+    recognize the sign and know its meaning, press the
+    <strong>SPACE</strong> bar on your keyboard. If not, then press the
+    <strong>ENTER</strong> key. Once a response is provided, you will be asked
+    to give the meaning of the sign that was just shown. If you do not know the
+    meaning please enter <strong>N/A</strong>. Once you finish writing your
+    answer, please click <strong>NEXT</strong> to go to the following sign,
+    <strong>Do not hit ENTER or SPACE outside the textbox</strong>.
+  </p>
+  <h5>If you are ready, click START</h5>
+  <form action="/rt/{{id}}/2">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-primary" value="Start" />
+  </form>
+  {% elif part == "partpreferences" %}
+  <h3>Preference:</h3>
+  <p>
+    In this exercise, you will be shown three iterations of the same street
+    sign: one iteration will be plain text, another will be a symbol, and the
+    third will combine symbols with text. Please answer which iteration you
+    would prefer seeing on the road.
+  </p>
+  <h5>If you are ready, click START.</h5>
+
+  <form action="/preference/{{id}}/0">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-primary" value="Start" />
+  </form>
+  {% elif part == "identify" %}
+  <h3>
+    In this part, you should try to shortly answer the meaning of each sign.
+  </h3>
+  <form action="/identify/{{id}}">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-primary" value="Start" />
+  </form>
+  {% else %}
+  <h3>Familiarity:</h3>
+  <p>
+    In this exercise, you will be shown several traffic signs that are displayed
+    on the roads we drive on. You will be asked to rate your familiarity with
+    the signs, on a scale from one '<strong>1</strong>' to five
+    '<strong>5</strong>'. Please select the option that most accurately
+    describes your familiarity with each sign.
+  </p>
+  <h5>If you are ready, click <strong>START</strong>.</h5>
+  <form action="/importance/{{id}}">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-primary" value="Start" />
+  </form>
+  {% endif %} {% endblock %}
+</h3>
