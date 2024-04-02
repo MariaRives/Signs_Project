@@ -139,7 +139,7 @@ def importance (request, id):
         subject = Subject.objects.get(id=id)        
         for key in request.POST:
             if key.startswith('signal'):
-                id = request.POST[key].replace('signal','')
+                id = key.replace('signal','')
                 signal = Signal.objects.get(id=id)
                 signal_importance = request.POST[key]
                 importance = Importance(
